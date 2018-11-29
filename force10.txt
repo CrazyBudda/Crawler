@@ -1,0 +1,34 @@
+printenv
+setenv stconfigignore true
+saveenv
+reset
+en
+dir
+del startup-config
+yes
+del startup-config.bak
+yes
+conf t 
+interf mana 0/0
+ip address 192.168.1.100 255.255.255.0
+exit
+exit
+write mem
+del startup-config
+yes
+reload
+yes
+en
+term len 0
+sh boot syst stac all
+sh bootvar
+sh runn
+sh alarm
+sh env
+sh inv
+sh os
+sh pack
+sh start
+sh system stack-unit 0
+sh ver
+dir

@@ -1,0 +1,70 @@
+setenv OSLoadOptions single
+boot
+mount -o remount,rw,noatime /
+mount /dev/hda2 /mnt
+/sbin/passwddefault
+/sbin/cleanup
+y
+rm /etc/fabos/fabos.0.conf
+reboot
+admin
+password
+switchdisable
+cfgdisable
+y
+cfgclear
+y
+cfgsave
+y
+configdefault
+switchenable
+switchname Switch
+bannerSet
+.
+dnsconfig
+3
+4
+ipaddrset
+10.77.77.77
+255.255.255.0
+0.0.0.0
+0.0.0.0
+errclear
+reboot
+admin
+password
+statsclear
+fabricLog -c
+fcpLogClear
+msPlClearDB
+portlogclear
+tsclockserver
+syslogdIpShow
+aaaconfig --show
+snmpConfig --default snmpv1
+y
+snmpConfig --default snmpv3
+y
+snmpConfig --default accessControl
+y
+snmpConfig --default mibCapability
+y
+snmpConfig --default systemGroup
+y
+snmpConfig --default secLevel
+y
+configshow -all
+cfgshow
+bannershow
+userconfig --show -a
+nbrStateShow
+lscfg --show
+version
+chassisshow
+switchshow
+licenseshow
+switchstatusshow
+sensorshow
+sfpshow 0
+sysshutdown
+y

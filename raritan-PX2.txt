@@ -1,0 +1,10 @@
+admin
+raritan
+reset pdu factorydefaults
+y
+show outlets
+show inlets
+show network details
+show pdu details
+reset pdu factorydefaults
+y

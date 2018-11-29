@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Crawl those commands!</title>
+<style>
+.forma {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: left;
+	color: #CCC;
+}
+.forma1 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+	color: #CCC;
+}
+.forma2 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: left;
+	color: #CCC;
+}
+.formaC {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: left;
+	color: #000;
+}
+.formaC1 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+	color: #000;
+}
+.formaC2 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: left;
+	color: #000;
+}
+.btn {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: left;
+	color: #000;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+.to_copy {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	color: #090;
+	text-align: left;
+	border-color: #F00;
+	background-color: #FF9;
+	border-style: solid;
+	padding-left: 5px;
+}
+input[type="submit"] {
+    white-space: normal;
+    width: 140px;
+}
+</style>
+</head>
+
+<body>
+<p>
+  <script>
+
+  var arr = [];
+ // document.getElementById("copybtn").disabled = true;
+  
+function myFunction() {
+
+if (typeof arr[3] == 'undefined') {
+	document.getElementById("test").value = "Re-Load commands";
+	document.getElementById("copybtn").disabled = true;
+	
+//	document.getElementById("coming1").innerHTML = "RELOAD!";
+	
+}
+
+else {
+	
+//document.getElementById("copybtn").disabled = false;
+	
+  var copyText = document.getElementById("command");
+  copyText.value = arr[3]
+  copyText.select();
+  document.execCommand("copy");
+
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copied: " + copyText.value;
+  
+  var coming = document.getElementById("coming");
+  coming.innerHTML = arr[4];
+  document.getElementById("coming1").innerHTML = arr[5];
+  document.getElementById("coming2").innerHTML = arr[6];
+  
+  var past = document.getElementById("past");
+  past.innerHTML = arr[2];
+  document.getElementById("past1").innerHTML = arr[1];
+  document.getElementById("past2").innerHTML = arr[0];  
+  arr.shift();
+}
+}
+
+function outFunc() {
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+
+function initia() {
+	document.getElementById("copybtn").disabled = false;
+	document.getElementById("test").value = "Load commands";
+	
+  var coms = document.getElementById("com_set").value;
+  arr =  coms.split("\n");
+  arr.unshift("...","...","...");
+  document.getElementById("command").value = "Press Copy button-->";
+  
+  var coming = document.getElementById("coming");
+  coming.innerHTML = arr[3];
+  document.getElementById("coming1").innerHTML = arr[4];
+  document.getElementById("coming2").innerHTML = arr[5];
+  
+  var past = document.getElementById("past");
+  past.innerHTML = arr[2];
+  document.getElementById("past1").innerHTML = arr[1];
+  document.getElementById("past2").innerHTML = arr[0];  
+  //arr.shift();
+  
+}
+</script>
+</p>
+<table width="75%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><p id="past2" class="forma2">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td><p id="past1" class="forma1">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td><p id="past" class="forma">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td><input name="textfield" type="text" class="to_copy" id="command" size="30" />
+<div class="tooltip">
+<button onclick="myFunction()" onmouseout="outFunc()" class="btn" id="copybtn">
+  <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+  Copy!
+  </button>
+</div>
+ 
+ </td>
+  </tr>
+  <tr>
+    <td><p id="coming" class="formaC">&nbsp;</p></td>
+  </tr>
+    <tr>
+    <td><p id="coming1" class="formaC1">&nbsp;</p></td>
+  </tr>
+    <tr>
+    <td><p id="coming2" class="formaC2">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td><textarea name="com_set" id="com_set" cols="45" rows="5">Past set of commands here.</textarea>
+
+        <input name="test" type="submit" class="btn" id="test" onclick="initia()" value="Load commands" />
+</td>
+  </tr>
+</table>
+<br />
+<p>&nbsp;</p>
+</body>
+</html>

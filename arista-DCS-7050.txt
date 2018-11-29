@@ -1,0 +1,16 @@
+fullrecover
+yes
+reboot
+admin
+zerotouch disable
+admin
+en
+erase start
+dir all
+dir /r
+del /r flash:/schedule
+sh runn
+sh inv
+sh ver
+sh start
+sh env all 

@@ -1,0 +1,18 @@
+dir flash:
+del flash:
+dir flash:
+reset
+Cisco
+en
+Cisco
+clear lwapp private-config
+clear lwapp ap controller ip address
+clear lwapp ap hostname
+clear lwapp ap ip address
+clear lwapp ap ip default-gateway
+clear capwap private-config
+sh capwap client conf
+sh capwap ip config
+sh ver
+del /f /r flash:configs
+dir all

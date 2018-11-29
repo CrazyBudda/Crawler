@@ -1,0 +1,42 @@
+default
+defaultpassword
+set /SP/users/root password
+password
+password
+exit
+root
+password
+cd /SP/logs/event
+set clear=true
+y
+cd /SP
+set reset_to_defaults=factory
+reset
+y
+root
+changeme
+set /SYS keyswitch_state=Diag
+start /SYS
+y
+start /SP/console
+y
+set-defaults
+#.
+show /SP/network
+show /SP/users
+show /SYS
+show /SYS/MB
+show /SYS/MB/CMP0
+show /System
+show /System/Processors
+show /System/Memory
+show /System/Memory/DIMMs
+show /System/Memory/DIMMs/DIMM_0
+show /System/Power
+show faulty
+set /SYS keyswitch_state=Normal
+cd /SP/logs/event
+set clear=true
+y
+stop /SYS
+y

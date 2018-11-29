@@ -1,0 +1,32 @@
+boot -s
+recovery
+configure
+set system root-authentication plain-text-password
+juniper1
+commit
+exit
+exit
+y
+root
+juniper1
+cli
+config
+load factory-default
+set system root-authentication plain-text-password
+juniper1
+commit
+exit
+request system zeroize media
+yes
+root
+cli
+sh chass hard
+sh chass env
+sh chass alarm
+sh ver
+request system storage clean
+yes
+request system storage clean
+yes
+request system halt
+yes
