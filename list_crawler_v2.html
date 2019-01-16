@@ -53,6 +53,14 @@
 	text-align: left;
 	color: #000;
 }
+.btn_done {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: left;
+	color: #000;
+	text-decoration: line-through;
+}
 .tooltip {
     position: relative;
     display: inline-block;
@@ -120,7 +128,7 @@ function myFunction() {
 if (typeof arr[3] == 'undefined') {
 	document.getElementById("test").value = "Re-Load commands";
 	document.getElementById("copybtn").disabled = true;
-	
+	document.getElementById("copybtn").className = "btn_done";
 //	document.getElementById("coming1").innerHTML = "RELOAD!";
 	
 }
@@ -157,6 +165,7 @@ function outFunc() {
 
 function initia() {
 	document.getElementById("copybtn").disabled = false;
+	document.getElementById("copybtn").className = "btn";
 	document.getElementById("test").value = "Load commands";
 	
   var coms = document.getElementById("com_set").value;
