@@ -1,0 +1,17 @@
+dir
+boot system flash primary
+enable
+skip-page-disp
+erase start
+usb format 0
+y
+dir
+sh runn
+show ip
+show users
+sh ver
+sh feature
+sh license
+sh interf brief
+sh chass
+sh media

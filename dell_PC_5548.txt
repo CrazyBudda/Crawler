@@ -1,0 +1,11 @@
+en
+del start
+Y
+reload
+en
+dir
+sh system
+sh ver
+sh vlan
+sh ip interf
+sh start
