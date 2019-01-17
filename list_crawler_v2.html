@@ -116,47 +116,83 @@ input[type="submit"] {
 </style>
 </head>
 
-<body>
+<body onload="onLoad()">
 <p>
   <script>
+var arr = [];
 
-  var arr = [];
- // document.getElementById("copybtn").disabled = true;
-  
+function onLoad() {
+	document.getElementById("copybtn").disabled = true;
+	document.getElementById("copybtn").className = "btn_done";
+	document.getElementById("command").value = "Load commands first!";
+}
+
 function myFunction() {
+	var copyText = document.getElementById("command");
+	copyText.select();
+	document.execCommand("copy");
 
-if (typeof arr[3] == 'undefined') {
+	if (typeof arr[4] == 'undefined') {
+		document.getElementById("test").value = "Re-Load commands";
+		document.getElementById("copybtn").disabled = true;
+		document.getElementById("copybtn").className = "btn_done";
+	}
+
+	arr.shift();
+	copyText.value = arr[3];
+	var tooltip = document.getElementById("myTooltip");
+	tooltip.innerHTML = "Copied: " + arr[2];//copyText.value;
+
+	document.getElementById("coming").innerHTML = arr[4];
+  document.getElementById("coming1").innerHTML = arr[5];
+  document.getElementById("coming2").innerHTML = arr[6];
+
+  document.getElementById("past").innerHTML = arr[2];
+  document.getElementById("past1").innerHTML = arr[1];
+  document.getElementById("past2").innerHTML = arr[0];
+}
+
+/*---------------------------------------------
+if (typeof arr[4] == 'undefined') {
+	var copyText = document.getElementById("command");
+  //copyText.value = arr[3] //-1
+  copyText.select();
+  document.execCommand("copy");
+	arr.shift();
 	document.getElementById("test").value = "Re-Load commands";
 	document.getElementById("copybtn").disabled = true;
 	document.getElementById("copybtn").className = "btn_done";
 //	document.getElementById("coming1").innerHTML = "RELOAD!";
-	
+
 }
 
 else {
-	
+
 //document.getElementById("copybtn").disabled = false;
-	
-  var copyText = document.getElementById("command");
-  copyText.value = arr[3]
+
+  //var copyText = document.getElementById("command");
+  //copyText.value = arr[3] //-1
   copyText.select();
   document.execCommand("copy");
+	arr.shift();
+	copyText.value = arr[3]; //-1
 
   var tooltip = document.getElementById("myTooltip");
-  tooltip.innerHTML = "Copied: " + copyText.value;
-  
+  tooltip.innerHTML = "Copied: " + arr[2];//copyText.value;
+
   var coming = document.getElementById("coming");
   coming.innerHTML = arr[4];
   document.getElementById("coming1").innerHTML = arr[5];
-  document.getElementById("coming2").innerHTML = arr[6];
-  
+  document.getElementById("coming2").innerHTML = arr[6]; //-1
+
   var past = document.getElementById("past");
   past.innerHTML = arr[2];
   document.getElementById("past1").innerHTML = arr[1];
-  document.getElementById("past2").innerHTML = arr[0];  
-  arr.shift();
+  document.getElementById("past2").innerHTML = arr[0];
+  //arr.shift();
 }
 }
+*/
 
 function outFunc() {
   var tooltip = document.getElementById("myTooltip");
@@ -167,23 +203,23 @@ function initia() {
 	document.getElementById("copybtn").disabled = false;
 	document.getElementById("copybtn").className = "btn";
 	document.getElementById("test").value = "Load commands";
-	
+
   var coms = document.getElementById("com_set").value;
   arr =  coms.split("\n");
   arr.unshift("...","...","...");
-  document.getElementById("command").value = "Press Copy button-->";
-  
+  document.getElementById("command").value = arr[3]; //"Press Copy button-->";
+
   var coming = document.getElementById("coming");
-  coming.innerHTML = arr[3];
-  document.getElementById("coming1").innerHTML = arr[4];
-  document.getElementById("coming2").innerHTML = arr[5];
-  
+  coming.innerHTML = arr[4];
+  document.getElementById("coming1").innerHTML = arr[5];
+  document.getElementById("coming2").innerHTML = arr[6];
+
   var past = document.getElementById("past");
   past.innerHTML = arr[2];
   document.getElementById("past1").innerHTML = arr[1];
-  document.getElementById("past2").innerHTML = arr[0];  
+  document.getElementById("past2").innerHTML = arr[0];
   //arr.shift();
-  
+
 }
 </script>
 </p>
@@ -205,7 +241,7 @@ function initia() {
   Copy!
   </button>
 </div>
- 
+
  </td>
   </tr>
   <tr>
