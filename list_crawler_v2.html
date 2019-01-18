@@ -81,6 +81,7 @@
     margin-left: -75px;
     opacity: 0;
     transition: opacity 0.3s;
+	font-size:12px;
 }
 
 .tooltip .tooltiptext::after {
@@ -142,7 +143,7 @@ function myFunction() {
 	arr.shift();
 	copyText.value = arr[3];
 	var tooltip = document.getElementById("myTooltip");
-	tooltip.innerHTML = "Copied: " + arr[2];//copyText.value;
+	tooltip.innerHTML = "Copied: <font color=\"yellow\">" + arr[2] + "</font>";//copyText.value;
 
   document.getElementById("coming").innerHTML = arr[4];
   document.getElementById("coming1").innerHTML = arr[5];
@@ -166,8 +167,8 @@ function initia() {
   var coms = document.getElementById("com_set").value;
   arr =  coms.split("\n");
   arr.unshift("...","...","...");
-	arr.push("...","...","...","...");
-  document.getElementById("command").value = arr[3]; //"Press Copy button-->";
+  arr.push("...","...","...","...");
+  document.getElementById("command").value = arr[3];
 
   document.getElementById("coming").innerHTML = arr[4];
   document.getElementById("coming1").innerHTML = arr[5];
@@ -192,10 +193,10 @@ function initia() {
     <td><p id="past" class="forma">&nbsp;</p></td>
   </tr>
   <tr>
-    <td><input name="textfield" type="text" class="to_copy" id="command" size="30" />
+    <td nowrap="nowrap"><input name="textfield" type="text" class="to_copy" id="command" size="30" />
 <div class="tooltip">
 <button onclick="myFunction()" onmouseout="outFunc()" class="btn" id="copybtn">
-  <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+  <span class="tooltiptext" style="white-space:normal" id="myTooltip">Copy to clipboard</span>
   Copy!
   </button>
 </div>
@@ -213,6 +214,7 @@ function initia() {
   </tr>
   <tr>
     <td><textarea name="com_set" id="com_set" cols="45" rows="5">Past set of commands here.</textarea>
+        <br />
         <input name="test" type="submit" class="btn" id="test" onclick="initia()" value="Load commands" />
 </td>
   </tr>
