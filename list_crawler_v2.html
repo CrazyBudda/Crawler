@@ -132,10 +132,11 @@ function myFunction() {
 	copyText.select();
 	document.execCommand("copy");
 
-	if (typeof arr[4] == 'undefined') {
+	if (typeof arr[8] == 'undefined') {
 		document.getElementById("test").value = "Re-Load commands";
 		document.getElementById("copybtn").disabled = true;
 		document.getElementById("copybtn").className = "btn_done";
+		arr[4] = "Re-Load commands!";
 	}
 
 	arr.shift();
@@ -143,6 +144,7 @@ function myFunction() {
 	var tooltip = document.getElementById("myTooltip");
 	tooltip.innerHTML = "Copied: " + arr[2];//copyText.value;
 
+//for
 	document.getElementById("coming").innerHTML = arr[4];
   document.getElementById("coming1").innerHTML = arr[5];
   document.getElementById("coming2").innerHTML = arr[6];
@@ -151,48 +153,6 @@ function myFunction() {
   document.getElementById("past1").innerHTML = arr[1];
   document.getElementById("past2").innerHTML = arr[0];
 }
-
-/*---------------------------------------------
-if (typeof arr[4] == 'undefined') {
-	var copyText = document.getElementById("command");
-  //copyText.value = arr[3] //-1
-  copyText.select();
-  document.execCommand("copy");
-	arr.shift();
-	document.getElementById("test").value = "Re-Load commands";
-	document.getElementById("copybtn").disabled = true;
-	document.getElementById("copybtn").className = "btn_done";
-//	document.getElementById("coming1").innerHTML = "RELOAD!";
-
-}
-
-else {
-
-//document.getElementById("copybtn").disabled = false;
-
-  //var copyText = document.getElementById("command");
-  //copyText.value = arr[3] //-1
-  copyText.select();
-  document.execCommand("copy");
-	arr.shift();
-	copyText.value = arr[3]; //-1
-
-  var tooltip = document.getElementById("myTooltip");
-  tooltip.innerHTML = "Copied: " + arr[2];//copyText.value;
-
-  var coming = document.getElementById("coming");
-  coming.innerHTML = arr[4];
-  document.getElementById("coming1").innerHTML = arr[5];
-  document.getElementById("coming2").innerHTML = arr[6]; //-1
-
-  var past = document.getElementById("past");
-  past.innerHTML = arr[2];
-  document.getElementById("past1").innerHTML = arr[1];
-  document.getElementById("past2").innerHTML = arr[0];
-  //arr.shift();
-}
-}
-*/
 
 function outFunc() {
   var tooltip = document.getElementById("myTooltip");
@@ -207,15 +167,14 @@ function initia() {
   var coms = document.getElementById("com_set").value;
   arr =  coms.split("\n");
   arr.unshift("...","...","...");
+	arr.push("...","...","...","...");
   document.getElementById("command").value = arr[3]; //"Press Copy button-->";
 
-  var coming = document.getElementById("coming");
-  coming.innerHTML = arr[4];
+  document.getElementById("coming").innerHTML = arr[4];
   document.getElementById("coming1").innerHTML = arr[5];
   document.getElementById("coming2").innerHTML = arr[6];
 
-  var past = document.getElementById("past");
-  past.innerHTML = arr[2];
+  document.getElementById("past").innerHTML = arr[2];
   document.getElementById("past1").innerHTML = arr[1];
   document.getElementById("past2").innerHTML = arr[0];
   //arr.shift();
